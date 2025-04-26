@@ -142,7 +142,7 @@ const gewichtsLabel = erstelleGewichtsLabel(tiere);
 console.log(gewichtsLabel);
 */
 
-/* Nr.5: Vogelmanager */
+/* Nr.5: Vogelmanager 
 
 const voegel = [
   { art: "Spatz", gewicht: 0.03 },
@@ -181,3 +181,4 @@ const winzigeVoegel = manager.filter((vogel) => vogel.label === "winzig");
 // Ausgabe
 console.log(manager);
 console.log(winzigeVoegel);
+*/
