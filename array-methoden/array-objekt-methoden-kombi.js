@@ -27,6 +27,8 @@ console.log(schuelerEntries);
 console.log(hatKlasse);
 */
 
+// ---------------------------------------------------------------------------------
+
 /* Nr.2: Produktmanager (Array-Methoden mit Funktionen)
 
 const produkte = [
@@ -66,6 +68,8 @@ console.log("Namen der teuren Produkte:", produktNamen);
 console.log("Gesamtpreis aller Produkte:", gesamtpreis);
 */
 
+// ---------------------------------------------------------------------------------
+
 /* Nr.3: Tiermanager 
 
 const tiere = [
@@ -104,6 +108,8 @@ console.log("Gesamte Gewicht:", gesamtGewicht);
 
 */
 
+// ---------------------------------------------------------------------------------
+
 /* Nr.4: Tier Gewichtslabel
    Jedem Tier ein Label ("leicht", "mittel", "schwer") basierend auf Gewicht zuordnen
 
@@ -141,6 +147,8 @@ const gewichtsLabel = erstelleGewichtsLabel(tiere);
 // Ausgabe
 console.log(gewichtsLabel);
 */
+
+// ---------------------------------------------------------------------------------
 
 /* Nr.5: Vogelmanager 
 
@@ -182,3 +190,121 @@ const winzigeVoegel = manager.filter((vogel) => vogel.label === "winzig");
 console.log(manager);
 console.log(winzigeVoegel);
 */
+
+// ---------------------------------------------------------------------------------
+
+/* Nr.6: Film-Manager 
+
+const filme = [
+  { titel: "Inception", bewertung: 8.8 },
+  { titel: "Interstellar", bewertung: 8.6 },
+  { titel: "Tenet", bewertung: 7.5 },
+  { titel: "Dunkirk", bewertung: 7.9 },
+  { titel: "Memento", bewertung: 8.4 },
+];
+
+// Alle Filme heraus filtern, deren Bewertung größer als grenze ist
+function filterTopFilme(filmArray, grenze) {
+  const filmeFiltern = filmArray.filter((film) => film.bewertung > grenze);
+  return filmeFiltern;
+}
+
+// Die Titel der Filme in ein neues Array holen
+function getFilmtitel(filmArray) {
+  return filmArray.map((film) => film.titel);
+}
+
+// Die durchschnittliche Bewertung aller Filme berechnen
+function berechneDurchschnittBewertung(filmArray) {
+  return filmArray.reduce((acc, film) => acc + film.bewertung, 0);
+}
+
+// Funktionen aufrufen und speichern
+const topFilm = filterTopFilme(filme, 8.0);
+const getTitel = getFilmtitel(topFilm);
+const durchschnittBewertung =
+  berechneDurchschnittBewertung(topFilm) / topFilm.length;
+
+// Ausgabe
+console.log("Gefilterte Filme:", topFilm);
+console.log("Titel der Filme:", getTitel);
+console.log("Durchschnittliche Bewertung:", durchschnittBewertung);
+*/
+
+// ---------------------------------------------------------------------------------
+
+/* Nr.7: Buch-Manager
+
+const buecher = [
+  { titel: "Harry Potter", seiten: 500, gelesen: true },
+  { titel: "Der Hobbit", seiten: 300, gelesen: false },
+  { titel: "Clean Code", seiten: 450, gelesen: true },
+  { titel: "1984", seiten: 328, gelesen: true },
+  { titel: "Dune", seiten: 600, gelesen: false },
+];
+
+// Alle Bücher filtern, die gelesen wurden
+function filterGeleseneBuecher(buchArray) {
+  return buchArray.filter((buch) => buch.gelesen);
+}
+
+// Alle Bücher holen, die weniger als maxSeiten haben
+function getKurzeBuecher(buchArray, maxSeiten) {
+  const kurzeBuch = buchArray.filter((buch) => buch.seiten < maxSeiten);
+  return kurzeBuch;
+}
+
+// Die Gesamtanzahl der Seiten aller Bücher im Array berechnen
+function berechneGesamtseiten(buchArray) {
+  return buchArray.reduce((summe, buch) => summe + buch.seiten, 0);
+}
+
+// Prüfen, ob es min. ein Buch gibt, das mehr Seiten hat als Seitengrenze
+function hatDickesBuch(buchArray, seitenGrenze) {
+  const buchPrüfen = buchArray.some((buch) => buch.seiten > seitenGrenze);
+  return buchPrüfen;
+}
+
+// Prüfen, ob alle Bücher im Array gelesen sind
+function alleBuecherGelesen(buchArray) {
+  return buchArray.every((buch) => buch.gelesen);
+}
+
+// Bücher Label (kurz, normal, dick) als Objekt zurückgeben
+function getBuecherLabel(buchArray) {
+  return buchArray.map((buch) => {
+    let label;
+    if (buch.seiten < 350) {
+      label = "kurzes Buch";
+    } else if (buch.seiten <= 450) {
+      label = "normales Buch";
+    } else {
+      label = "dickes Buch";
+    }
+
+    return {
+      titel: buch.titel,
+      seiten: buch.seiten,
+      label: label,
+    };
+  });
+}
+
+// Funktion benutzen
+const geleseneBuecher = filterGeleseneBuecher(buecher);
+const kurzeBuecher = getKurzeBuecher(geleseneBuecher, 350);
+const gesamtseiten = berechneGesamtseiten(geleseneBuecher); // oder buecher, je nach dem wie viele Bücher man gewählt hat
+const dickesBuch = hatDickesBuch(geleseneBuecher, 450);
+const buecherGelesen = alleBuecherGelesen(geleseneBuecher);
+const buchLabel = getBuecherLabel(geleseneBuecher);
+
+// Ausgabe
+console.log("Gelesene Bücher:", geleseneBuecher);
+console.log("kurze Bücher:", kurzeBuecher);
+console.log("Gesamte Seiten der gewählten Bücher:", gesamtseiten);
+console.log("Dickes Buch ausgewählt:", dickesBuch);
+console.log("Sind alle ausgewählten Bücher fertig gelesen:", buecherGelesen);
+console.log("Deine ausgewählten Bücher:", buchLabel);
+*/
+
+// ---------------------------------------------------------------------------------
