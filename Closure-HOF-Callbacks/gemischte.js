@@ -205,7 +205,7 @@ function getFastFertigBenutzer(array) {
 console.log(getFastFertigBenutzer(benutzer));
 */
 
-/* Nr.37: Bewertungs-Check pro Kurs */
+/* Nr.37: Bewertungs-Check pro Kurs 
 
 const kurse = [
   { name: "JavaScript", bewertungen: [5, 4, 4, 5] },
@@ -235,3 +235,4 @@ function getTopKurse(array) {
 }
 
 console.log(getTopKurse(kurse));
+*/

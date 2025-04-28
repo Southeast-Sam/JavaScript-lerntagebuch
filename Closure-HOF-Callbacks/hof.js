@@ -352,7 +352,7 @@ kontakte.anzeigen();
 console.log("Anzahl Kontakte:", kontakte.anzahl());
 */
 
-/* Nr.15: Buch-Manager */
+/* Nr.15: Buch-Manager 
 
 function erstelleBuchManager() {
   let bücher = [];
@@ -401,3 +401,4 @@ bücher.zeigeAlles();
 bücher.löschen(1);
 bücher.anzeigen();
 console.log("📚 Anzahl Bücher:", bücher.anzahl());
+*/

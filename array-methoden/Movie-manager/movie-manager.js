@@ -1,3 +1,4 @@
+/*
 let filme = [];
 
 // Filme hinzufügen (Titel, Genre, Bewertung von 1 -10)
@@ -68,3 +69,4 @@ console.log(hatTopFilm(filme, 8));
 // Filme nach Alphabet sortieren
 console.log("Deine Filme:");
 console.log(sortiereFilmeNachTitel(filme));
+*/
