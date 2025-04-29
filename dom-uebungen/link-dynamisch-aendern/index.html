@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link dynamisch ändern</title>
+  </head>
+  <body>
+    <a href="https://www.freecodecamp.org" id="meinLink" target="_blank">
+      FreeCodeCamp öffnen
+    </a>
+
+    <br />
+    <br />
+    <button id="linkWechsler">Link ändern</button>
+
+    <script>
+      const button = document.querySelector("#linkWechsler");
+      const link = document.querySelector("#meinLink");
+
+      button.addEventListener("click", function () {
+        link.setAttribute("href", "https://developer.mozilla.org");
+        link.textContent = "MDN öffnen";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bild ändern</title>
+  </head>
+  <body>
+    <img
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+      alt="Pikachu"
+    />
+    <button id="wechseln">Bild wechseln</button>
+
+    <script>
+      const button = document.getElementById("wechseln");
+      const img = document.querySelector("img");
+
+      button.addEventListener("click", function () {
+        if (img.src.includes("25.png")) {
+          img.setAttribute(
+            "src",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+          );
+        } else {
+          img.setAttribute(
+            "src",
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
