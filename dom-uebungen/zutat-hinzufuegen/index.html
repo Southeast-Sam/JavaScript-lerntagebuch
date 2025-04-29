@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zutat hinzufügen</title>
+  </head>
+  <body>
+    <h1>Zutatenliste</h1>
+
+    <ul class="zutaten">
+      <li>Mehl</li>
+      <li>Wasser</li>
+      <li>Zucker</li>
+    </ul>
+
+    <input type="text" id="eingabe" placeholder="Neue Zutat" />
+
+    <button id="hinzufuegen">Hinzufügen</button>
+
+    <script>
+      const zutaten = document.querySelector(".zutaten");
+      const input = document.querySelector("#eingabe");
+      const button = document.querySelector("#hinzufuegen");
+
+      button.addEventListener("click", function () {
+        const text = input.value.trim();
+
+        if (text !== "") {
+          const neueZutat = document.createElement("li");
+          neueZutat.textContent = text;
+          zutaten.appendChild(neueZutat);
+          input.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
