@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser Info</title>
+  </head>
+  <body>
+    <h1>Browser-Informationen</h1>
+
+    <ul id="infos"></ul>
+
+    <script>
+      const infos = document.getElementById("infos");
+
+      //Browser-Sprache anzeigen
+      const sprache = document.createElement("li");
+      sprache.textContent = "Sprache: " + navigator.language;
+      infos.appendChild(sprache);
+
+      // Fensterbreite anzeigen
+      const breite = document.createElement("li");
+      breite.textContent = "Fensterbreite: " + window.innerWidth + "px";
+      infos.appendChild(breite);
+
+      // User-Agent anzeigen
+      const agent = document.createElement("li");
+      agent.textContent = "User Agent: " + navigator.userAgent;
+      infos.appendChild(agent);
+    </script>
+  </body>
+</html>
