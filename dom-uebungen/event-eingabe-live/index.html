@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Eingabe</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <header>
+          <h1>Dein Name</h1>
+          <p>Gib deinen Namen ein und sieh live, was du tippst:</p>
+        </header>
+
+        <form>
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Max Mustermann"
+          />
+        </form>
+
+        <p id="anzeige"></p>
+      </section>
+    </main>
+
+    <script>
+      const inputFeld = document.getElementById("name");
+      const anzeige = document.getElementById("anzeige");
+
+      inputFeld.addEventListener("input", function (event) {
+        anzeige.textContent = "Du tippst: " + event.target.value;
+      });
+    </script>
+  </body>
+</html>
