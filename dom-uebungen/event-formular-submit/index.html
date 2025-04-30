@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formular-Submit</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <header>
+          <h1>Formular mit JavaScript</h1>
+          <p>Dein Name wird beim Absenden unten angezeigt - ohne Neuladen.</p>
+        </header>
+
+        <form id="meinFormular">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <button type="submit">Absenden</button>
+        </form>
+
+        <p id="ausgabe"></p>
+      </section>
+    </main>
+
+    <script>
+      const formular = document.getElementById("meinFormular");
+      const ausgabe = document.getElementById("ausgabe");
+
+      formular.addEventListener("submit", function (event) {
+        event.preventDefault(); // verhindert Neuladen
+        const name = document.getElementById("name").value.trim();
+        if (name) {
+          ausgabe.textContent = "Hallo, " + name + "!";
+        } else {
+          ausgabe.textContent = "Bitte gib einen Namen ein.";
+        }
+      });
+    </script>
+  </body>
+</html>
