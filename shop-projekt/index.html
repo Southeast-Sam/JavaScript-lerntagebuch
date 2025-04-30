@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaffee-Shop</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0 20px 40px;
+      }
+
+      header,
+      main {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 20px 0;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .warenkorb {
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        background-color: #000;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 6px;
+      }
+
+      article {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="warenkorb">
+      Warenkorb: <span id="anzahl">0</span> Produkte
+      <br />
+      <button id="leerenButton">Leeren</button>
+    </aside>
+
+    <header>
+      <h1>Mein Kaffee-Shop</h1>
+      <p>Füge Produkte deinem Warenkorb hinzu</p>
+    </header>
+
+    <main>
+      <section>
+        <article>
+          <h2>Bio-Kaffee 500g</h2>
+          <p>Preis: 9,99 €</p>
+          <button class="hinzufuegen">In den Warenkorb</button>
+        </article>
+
+        <article>
+          <h2>Keramiktasse</h2>
+          <p>Preis: 4,49 €</p>
+          <button class="hinzufuegen">In den Warenkorb</button>
+        </article>
+
+        <article>
+          <h2>French Press 1L</h2>
+          <p>Preis: 24,90 €</p>
+          <button class="hinzufuegen">In den Warenkorb</button>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const buttons = document.querySelectorAll(".hinzufuegen");
+      const leerenButton = document.getElementById("leerenButton");
+      const anzeige = document.getElementById("anzahl");
+      let anzahl = 0;
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          anzahl++;
+          anzeige.textContent = anzahl;
+        });
+      });
+
+      leerenButton.addEventListener("click", function () {
+        anzahl = 0;
+        anzeige.textContent = anzahl;
+      });
+    </script>
+  </body>
+</html>
