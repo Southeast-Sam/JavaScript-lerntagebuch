@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form Method</title>
+  </head>
+  <body>
+    <h2>Formular mit GET</h2>
+    <form action="#" method="get">
+      <label for="name1">Dein Name:</label>
+      <input type="text" id="name1" name="name" required />
+      <input type="submit" value="Absenden" />
+    </form>
+
+    <h2>Formular mit POST</h2>
+    <form action="#" method="post" id="post">
+      <label for="name2">Dein Name:</label>
+      <input type="text" id="name2" name="name" required />
+      <input type="submit" value="Absenden" />
+      <p id="ausgabe"></p>
+    </form>
+
+    <script>
+      const post = document.getElementById("post");
+      const ausgabe = document.getElementById("ausgabe");
+
+      post.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const nameInput = document.getElementById("name2");
+        const name = nameInput.value;
+
+        ausgabe.textContent = "Du hast eingegeben: " + name;
+      });
+    </script>
+  </body>
+</html>
