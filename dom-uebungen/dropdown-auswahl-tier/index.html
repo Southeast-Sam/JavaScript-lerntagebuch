@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown Menü</title>
+  </head>
+  <body>
+    <label for="tier">Wähle ein Tier aus:</label>
+    <select id="tier">
+      <option value="Hund">Hund</option>
+      <option value="Katze">Katze</option>
+      <option value="Vogel">Vogel</option>
+    </select>
+
+    <p id="ergebnis"></p>
+
+    <script>
+      const ausgewählt = document.getElementById("tier");
+      const ergebnis = document.getElementById("ergebnis");
+
+      ausgewählt.addEventListener("change", function () {
+        ergebnis.textContent = "Du hast " + ausgewählt.value + " gewählt!";
+      });
+    </script>
+  </body>
+</html>
