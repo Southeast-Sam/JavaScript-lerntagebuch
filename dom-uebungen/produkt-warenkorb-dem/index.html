@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <aside class="warenkorb">
+      Anzahl der Produkte: <span id="anzahl">0</span>
+      <br />
+      <button id="leerenButton">Leeren</button>
+    </aside>
+
+    <main>
+      <section>
+        <article>
+          <h2 class="name">Produkte 1</h2>
+          <button class="add">+</button>
+          <div class="anzeigen"></div>
+        </article>
+        <br />
+        <article>
+          <h2 class="name">Produkte 2</h2>
+          <button class="add">+</button>
+          <div class="anzeigen"></div>
+        </article>
+        <br />
+        <article>
+          <h2 class="name">Produkte 3</h2>
+          <button class="add">+</button>
+          <div class="anzeigen"></div>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const buttons = document.querySelectorAll(".add");
+      const leerenButton = document.getElementById("leerenButton");
+      const anzahlGewählteProdukt = document.getElementById("anzahl");
+      let anzahl = 0;
+
+      buttons.forEach(function (button, index) {
+        button.addEventListener("click", function () {
+          anzahl++;
+          anzahlGewählteProdukt.textContent = anzahl;
+
+          // Hole das zugehörige Produkt-Element
+          const produktName =
+            document.querySelectorAll(".name")[index].textContent;
+
+          // Neues Element erstellen
+          const neuesProdukt = document.createElement("div");
+          neuesProdukt.textContent = produktName + " hinzugefügt";
+
+          // In die passende .anzeigen-Div einfügen
+          document
+            .querySelectorAll(".anzeigen")
+            [index].appendChild(neuesProdukt);
+        });
+      });
+
+      leerenButton.addEventListener("click", function () {
+        anzahl = 0;
+        anzahlGewählteProdukt.textContent = anzahl;
+
+        // Alle anzeigen leeren
+        document.querySelectorAll(".anzeigen").forEach((leeren) => {
+          leeren.innerHTML = "";
+        });
+      });
+    </script>
+  </body>
+</html>
