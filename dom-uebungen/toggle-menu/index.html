@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>toggle menu</title>
+  </head>
+  <body>
+    <button id="menu-toggle">☰ Menü</button>
+
+    <nav id="main-menu" class="menu">
+      <ul>
+        <li><a href="#">Startseite</a></li>
+        <li><a href="#">Über uns</a></li>
+        <li><a href="#">Produkte</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <style>
+      .menu {
+        display: none;
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        width: 200px;
+      }
+
+      .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .menu li {
+        margin-bottom: 8px;
+      }
+
+      .menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+
+      .menu.show {
+        display: block;
+      }
+    </style>
+
+    <script>
+      const btn = document.getElementById("menu-toggle");
+      const mainMenu = document.getElementById("main-menu");
+
+      btn.addEventListener("click", function () {
+        mainMenu.classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>
