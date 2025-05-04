@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Plugin mit display: none</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+      }
+
+      .info-box {
+        display: none;
+        background-color: #dff0d8;
+        padding: 1rem;
+        border: 1px solid #b2d8b2;
+        border-radius: 8px;
+        margin-top: 1rem;
+      }
+
+      button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        background-color: #0077b6;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0096c7;
+      }
+
+      button:active {
+        transform: scale(0.95);
+        background-color: #1e708b;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="toggle-btn">Mehr Infos anzeigen</button>
+
+    <div id="info" class="info-box">
+      Das ist ein Beispiel-Plugin mit <code>display: none</code>.
+    </div>
+
+    <script>
+      const btn = document.getElementById("toggle-btn");
+      const info = document.getElementById("info");
+
+      btn.addEventListener("click", function () {
+        if (getComputedStyle(info).display === "none") {
+          info.style.display = "block";
+          btn.textContent = "Info ausblenden";
+        } else {
+          info.style.display = "none";
+          btn.textContent = "Mehr Infos anzeigen";
+        }
+      });
+    </script>
+  </body>
+</html>
