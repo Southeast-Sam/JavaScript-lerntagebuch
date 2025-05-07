@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>JavaScript-Array von Objekten</h1>
     <button id="laden">Datei laden</button>
+    <div id="loader"></div>
     <pre id="output"></pre>
 
     <script>
@@ -17,21 +19,35 @@
       // Optional: Zeige an, ob das Produkt lagernd ist oder nicht (z.B. grün/rot)
 
       document.getElementById("laden").addEventListener("click", async () => {
-        const res = await fetch("produkte.json");
-        const data = await res.json();
         const output = document.getElementById("output");
-        output.innerHTML = ""; // Vorherige Inhalte löschen
-        data.forEach((produkt) => {
-          const produktInfo = document.createElement("div");
-          produktInfo.innerHTML = `
-                <strong>Name:</strong> ${produkt.name} <br>
-                <strong>Preis:</strong> ${produkt.preis} € <br>
-                <strong>Lagernd</strong> ${produkt.lagernd ? "Ja" : "Nein"} <br>
-                <hr>`;
+        const loader = document.getElementById("loader");
 
-          produktInfo.style.color = produkt.lagernd ? "green" : "red";
-          output.appendChild(produktInfo);
-        });
+        output.innerHTML = "";
+        loader.style.display = "block"; // Spinner anzeigen
+        try {
+          const res = await fetch("produkte.json");
+          const data = await res.json();
+
+          // Warte künstlich 2s, damit man den Spinner sieht
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+
+          loader.style.display = "none"; // Spinner ausblenden
+
+          data.forEach((produkt) => {
+            const produktInfo = document.createElement("div");
+            produktInfo.innerHTML = `
+              <strong>Name:</strong> ${produkt.name} <br>
+              <strong>Preis:</strong> ${produkt.preis} € <br>
+              <strong>Lagernd:</stron> ${produkt.lagernd ? "Ja" : "Nein"} <br>
+              <hr>`;
+            produktInfo.style.color = produkt.lagernd ? "green" : "red";
+            output.appendChild(produktInfo);
+          });
+        } catch (err) {
+          loader.style.display = "none";
+          output.textContent = "❌ Fehler beim Laden.";
+          console.error("Fehler:", err);
+        }
       });
     </script>
   </body>
