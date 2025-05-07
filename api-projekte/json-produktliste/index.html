@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JavaScript-Array von Objekten</h1>
+    <button id="laden">Datei laden</button>
+    <pre id="output"></pre>
+
+    <script>
+      // Lade diese JSON datei mit fetch()
+      // Wandle sie in ein JS-Array von Objekten um
+      // Zeige alle Produkte mit Namen und Preis auf der Webseite an
+      // Optional: Zeige an, ob das Produkt lagernd ist oder nicht (z.B. grün/rot)
+
+      document.getElementById("laden").addEventListener("click", async () => {
+        const res = await fetch("produkte.json");
+        const data = await res.json();
+        const output = document.getElementById("output");
+        output.innerHTML = ""; // Vorherige Inhalte löschen
+        data.forEach((produkt) => {
+          const produktInfo = document.createElement("div");
+          produktInfo.innerHTML = `
+                <strong>Name:</strong> ${produkt.name} <br>
+                <strong>Preis:</strong> ${produkt.preis} € <br>
+                <strong>Lagernd</strong> ${produkt.lagernd ? "Ja" : "Nein"} <br>
+                <hr>`;
+
+          produktInfo.style.color = produkt.lagernd ? "green" : "red";
+          output.appendChild(produktInfo);
+        });
+      });
+    </script>
+  </body>
+</html>

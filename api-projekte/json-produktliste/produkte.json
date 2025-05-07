@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Tastatur",
+    "preis": 29.99,
+    "lagernd": true
+  },
+  {
+    "name": "Maus",
+    "preis": 19.99,
+    "lagernd": false
+  },
+  {
+    "name": "Monitor",
+    "preis": 149.99,
+    "lagernd": true
+  }
+]
